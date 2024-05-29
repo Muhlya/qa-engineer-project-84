@@ -9,3 +9,65 @@
     В списке товаров отображается товар согласно введенной категории
   actual-result: |
     В списке товаров отображается результат "Ничего не найдено!"
+
+- summary: |
+    Не полный перевод при смене языка
+  environment: |
+    https://hexlet-products-store.vercel.app/
+  steps-to-reproduce: |
+    1. Кликаем на кнопку "Language"
+    2. Выбираем язык "Russian"
+  expected-result: |
+    Все элементы сайта поменяли язык на выбранный
+  actual-result: |
+    В описании товара язык не поменялся
+
+- summary: |
+    Дополнительные изображения в карточке товара не открываются
+  environment: |
+    https://hexlet-products-store.vercel.app/
+  steps-to-reproduce: |
+    1. Выбираем товар из списка товаров
+    2. Выбираем дополнительное изображение
+  expected-result: |
+    Открывается дополнительное изображение
+  actual-result: |
+    Дополнительное изображение не открывается
+
+- summary: |
+    Не успешное оформление заказа
+  environment: |
+    https://hexlet-products-store.vercel.app/
+  steps-to-reproduce: |
+    1. Выбираем "Cart"
+    2. Выбираем "Checkout"
+    3. Проверяем в DevTools отправку запроса на сервер
+  expected-result: |
+    На сервер отправился POST запрос, status code: 200 OK.
+  actual-result: |
+    В DevTools появляется запрос, status code: 500 Internal Server Error
+
+- summary: |
+    Остатки товаров не актуализируются
+  environment: |
+    https://hexlet-products-store.vercel.app/
+  steps-to-reproduce: |
+    1. Добавляем в корзину любой товар который в наличии
+    2. Переходим в корзину
+    3. Нажимаем "Checkout"
+  expected-result: |
+    Заказ оформлен
+  actual-result: |
+    Заказ не уходит на сервер
+
+- summary: |
+    Поле “Price” не валидно
+  environment: |
+    https://hexlet-products-store.vercel.app/
+  steps-to-reproduce: |
+    1. Ввести данные в левое поле “Price” например оплОПЛ;%:-22
+    2. Ввести данные в правое поле “Price” например оплОПЛ;%:-66
+  expected-result: |
+    Введены только положительные числа
+  actual-result: |
+    Введены отрицательные числа
