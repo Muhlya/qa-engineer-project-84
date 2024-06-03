@@ -1,17 +1,6 @@
 ---
 - summary: |
-    Не работает поиск по категории
-  environment: |
-    https://hexlet-products-store.vercel.app/
-  steps-to-reproduce: |
-    1. Вводим категорию в поле поиска
-  expected-result: |
-    В списке товаров отображается товар согласно введенной категории
-  actual-result: |
-    В списке товаров отображается результат "Ничего не найдено!"
-
-- summary: |
-    Не полный перевод при смене языка
+    Не переводится описание товара на русский
   environment: |
     https://hexlet-products-store.vercel.app/
   steps-to-reproduce: |
@@ -23,25 +12,28 @@
     В описании товара язык не поменялся
 
 - summary: |
-    Дополнительные изображения в карточке товара не открываются
+    Не открывается галлерея в карточке товара
   environment: |
     https://hexlet-products-store.vercel.app/
   steps-to-reproduce: |
-    1. Выбираем товар из списка товаров
-    2. Выбираем дополнительное изображение
+    1.Ставим фильтр на категорию например furniture
+    2. Открываем карточку товара из списка товаров
+    3. Открываем дополнительное изображение
   expected-result: |
     Открывается дополнительное изображение
   actual-result: |
     Дополнительное изображение не открывается
 
 - summary: |
-    Не успешное оформление заказа
+    Ошибка 500 при оформлении заказа
   environment: |
     https://hexlet-products-store.vercel.app/
   steps-to-reproduce: |
-    1. Выбираем "Cart"
-    2. Выбираем "Checkout"
-    3. Проверяем в DevTools отправку запроса на сервер
+    1. Выбираем любой товар из списка товаров
+    2. Кликаем на “Add to cart”
+    3. Выбираем "Cart"
+    4. Выбираем "Checkout"
+    5. Проверяем в DevTools отправку запроса на сервер
   expected-result: |
     На сервер отправился POST запрос, status code: 200 OK.
   actual-result: |
@@ -61,7 +53,7 @@
     Заказ не уходит на сервер
 
 - summary: |
-    Поле “Price” не валидно
+    Отрицательные значения в поле “Price”
   environment: |
     https://hexlet-products-store.vercel.app/
   steps-to-reproduce: |
